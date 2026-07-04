@@ -5,13 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>損保代理店ニュースまとめ</title>
 <style>
-body{font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;color:#333;line-height:1.8}
-h1{font-size:1.4em;border-bottom:3px solid #1a5276;padding-bottom:8px}
-.note{background:#eaf2f8;padding:16px;border-radius:6px}
+:root{
+  --navy:#1a5276; --bg:#f6f8fa;
+  --c-seido:#2471a3; --c-kaisha:#1e8449; --c-saigai:#c0392b; --c-shijo:#7d3c98;
+}
+*{box-sizing:border-box}
+body{font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;background:var(--bg);color:#2c3e50;margin:0;line-height:1.7}
+.wrap{max-width:800px;margin:0 auto;padding:24px 20px}
+header{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:12px;padding:18px 24px;margin-bottom:18px}
+header h1{margin:0;font-size:1.5em;letter-spacing:.05em}
+header .date{font-size:.95em;opacity:.9;margin-top:4px}
+header .lead{font-size:.85em;opacity:.85;margin-top:2px}
+.card{background:#fff;border-radius:10px;padding:14px 18px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:6px solid #ccc}
+.card.seido{border-left-color:var(--c-seido)}
+.card.kaisha{border-left-color:var(--c-kaisha)}
+.card.saigai{border-left-color:var(--c-saigai)}
+.card.shijo{border-left-color:var(--c-shijo)}
+.tag{display:inline-block;font-size:.72em;font-weight:bold;color:#fff;border-radius:20px;padding:2px 12px;margin-bottom:6px;vertical-align:middle}
+.seido .tag{background:var(--c-seido)}
+.kaisha .tag{background:var(--c-kaisha)}
+.saigai .tag{background:var(--c-saigai)}
+.shijo .tag{background:var(--c-shijo)}
+.card h2{font-size:1.05em;margin:2px 0 6px}
+.card h2 .icon{margin-right:6px}
+.card p{margin:0;font-size:.9em}
+.impact{margin-top:6px;font-size:.85em;background:#fef9e7;border-radius:6px;padding:4px 10px}
+.impact::before{content:"💡 代理店への影響:";font-weight:bold;margin-right:4px}
+.src{font-size:.75em;color:#7f8c8d;margin-top:6px}
+footer{font-size:.75em;color:#7f8c8d;margin-top:20px;border-top:1px solid #ddd;padding-top:10px}
+footer a{color:var(--navy)}
+@media print{
+  @page{size:A4;margin:10mm}
+  body{background:#fff;font-size:9.5pt}
+  .wrap{max-width:none;padding:0}
+  header{border-radius:6px;padding:8px 14px;margin-bottom:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  header h1{font-size:1.2em}
+  .card{box-shadow:none;border:1px solid #ddd;border-left-width:5px;padding:6px 12px;margin-bottom:6px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card p{font-size:8.5pt}
+  footer{margin-top:8px}
+}
 </style>
 </head>
 <body>
-<h1>損保代理店ニュースまとめ</h1>
-<p class="note">準備中です。毎朝6時に最新のニュースまとめを自動更新します。</p>
+<div class="wrap">
+
+<header>
+  <h1>📰 損保代理店ニュースまとめ</h1>
+  <div class="date">2026年7月5日(日)版 【デザインサンプル】</div>
+  <div class="lead">毎朝6時更新|損害保険の実務に効くニュースをA4一枚で</div>
+</header>
+
+<div class="card seido">
+  <span class="tag">制度・規制</span>
+  <h2><span class="icon">🏛️</span>(サンプル)金融庁、保険募集に関する新ガイドラインを公表</h2>
+  <p>ここに実際のニュース要約が2〜3行入ります。明日の朝6時以降、実際のニュースに自動で置き換わります。</p>
+  <div class="impact">ここに代理店実務への影響が1行入ります。</div>
+  <div class="src">出典: ○○新聞(2026/7/5)</div>
+</div>
+
+<div class="card kaisha">
+  <span class="tag">各社動向</span>
+  <h2><span class="icon">🏢</span>(サンプル)大手損保、火災保険の料率改定を発表</h2>
+  <p>ここに実際のニュース要約が入ります。</p>
+  <div class="impact">ここに影響コメントが入ります。</div>
+  <div class="src">出典: ○○ニュース(2026/7/4)</div>
+</div>
+
+<div class="card saigai">
+  <span class="tag">災害・事故</span>
+  <h2><span class="icon">🌀</span>(サンプル)台風○号が接近、九州で大雨のおそれ</h2>
+  <p>ここに実際のニュース要約が入ります。</p>
+  <div class="impact">ここに影響コメントが入ります。</div>
+  <div class="src">出典: 気象庁(2026/7/5)</div>
+</div>
+
+<div class="card shijo">
+  <span class="tag">市場動向</span>
+  <h2><span class="icon">📊</span>(サンプル)自動車保険の加入率、EV普及で変化の兆し</h2>
+  <p>ここに実際のニュース要約が入ります。</p>
+  <div class="impact">ここに影響コメントが入ります。</div>
+  <div class="src">出典: ○○リサーチ(2026/7/3)</div>
+</div>
+
+<footer>
+  本ページは公開情報の要約です。詳細は各出典をご確認ください。|毎朝6時自動更新
+</footer>
+
+</div>
 </body>
 </html>
