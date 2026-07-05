@@ -1,0 +1,51 @@
+# 毎朝のニュース自動収集・ページ更新
+#
+# - 毎日 20:30 UTC (= 日本時間 5:30) に起動。GitHub Actions の cron は
+#   数分〜30分程度遅延することがあるため、6時までに反映されるよう早めに設定。
+# - リポジトリの Secrets に ANTHROPIC_API_KEY を設定すると Claude による
+#   記事選定・要約・「代理店実務への影響」コメント付きで生成される。
+#   未設定でもルールベースの簡易版(見出しのみ)で動作する。
+# - Actions タブの「Run workflow」からいつでも手動実行できる。
+name: daily-news
+
+on:
+  schedule:
+    - cron: "30 20 * * *"  # 05:30 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-news
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Collect news and rebuild page
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/collect_news.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html archive/
+          if git diff --cached --quiet; then
+            echo "変更なし - コミットをスキップ"
+          else
+            git commit -m "news: $(TZ=Asia/Tokyo date +%Y-%m-%d) 自動更新"
+            git push
+          fi
