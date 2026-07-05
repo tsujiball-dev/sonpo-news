@@ -3,101 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>損保代理店ニュースまとめ 2026年7月5日</title>
+<title>損害保険ニュースまとめ　大阪ＡＩ支社より</title>
 <style>
-  @page { size: A4; margin: 12mm; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-    font-size: 10pt; line-height: 1.5; color: #222;
-    max-width: 800px; margin: 0 auto; padding: 16px;
-  }
-  header { border-bottom: 3px solid #1a3c6e; padding-bottom: 6px; margin-bottom: 10px;
-    display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
-  h1 { font-size: 15pt; color: #1a3c6e; }
-  .date { font-size: 10pt; color: #555; }
-  article { margin-bottom: 9px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
-  article:last-of-type { border-bottom: none; }
-  .cat { display: inline-block; font-size: 8pt; font-weight: bold; color: #fff;
-    background: #1a3c6e; border-radius: 3px; padding: 1px 6px; margin-right: 6px; vertical-align: middle; }
-  .cat.saigai { background: #a33; }
-  .cat.kakusha { background: #2e6b34; }
-  .cat.shijo { background: #7a5c1e; }
-  h2 { font-size: 11pt; display: inline; vertical-align: middle; }
-  .src { font-size: 8.5pt; color: #777; margin-left: 4px; }
-  p.sum { margin-top: 3px; font-size: 9.5pt; }
-  p.impact { margin-top: 2px; font-size: 9.5pt; color: #1a3c6e; }
-  p.impact::before { content: "▶ 代理店実務への影響: "; font-weight: bold; }
-  footer { margin-top: 12px; border-top: 2px solid #1a3c6e; padding-top: 6px; font-size: 8.5pt; color: #555; }
-  footer ul { margin: 4px 0 6px 1.2em; }
-  footer li { margin-bottom: 1px; }
-  a { color: #1a5ca8; }
-  .note { font-size: 8pt; color: #888; }
-  .backnumber { margin-top: 8px; font-size: 8.5pt; }
-  @media print {
-    body { max-width: none; padding: 0; font-size: 9pt; }
-    a { color: #222; text-decoration: none; }
-    .backnumber { display: none; }
-  }
+:root{--navy:#1a5276;--c-seido:#2471a3;--c-kakusha:#1e8449;--c-saigai:#c0392b;--c-shijo:#7d3c98;--c-dairiten:#b7770d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#f6f8fa;color:#2c3e50;line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:20px 16px}
+header{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:12px;padding:16px 22px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header h1{font-size:1.4em;letter-spacing:.04em}
+header .sub{font-size:.85em;opacity:.9}
+.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:2px solid #fff;display:none}
+article{background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:6px solid var(--c-seido)}
+article.saigai{border-left-color:var(--c-saigai)}
+article.kakusha{border-left-color:var(--c-kakusha)}
+article.shijo{border-left-color:var(--c-shijo)}
+article.dairiten{border-left-color:var(--c-dairiten)}
+.cat{display:inline-block;font-size:.72em;font-weight:bold;color:#fff;background:var(--c-seido);border-radius:20px;padding:2px 12px;margin-right:6px;vertical-align:middle}
+.saigai .cat{background:var(--c-saigai)}
+.kakusha .cat{background:var(--c-kakusha)}
+.shijo .cat{background:var(--c-shijo)}
+.dairiten .cat{background:var(--c-dairiten)}
+h2{font-size:1em;display:inline;vertical-align:middle}
+.icon{margin-right:4px}
+.src{font-size:.75em;color:#7f8c8d;margin-left:4px}
+p.sum{margin-top:5px;font-size:.88em}
+p.impact{margin-top:5px;font-size:.85em;background:#fef9e7;border-radius:6px;padding:3px 10px}
+p.impact::before{content:"💡 代理店実務への影響: ";font-weight:bold}
+footer{margin-top:14px;border-top:2px solid var(--navy);padding-top:8px;font-size:.8em;color:#555}
+footer ul{margin:4px 0 6px 1.2em}
+a{color:#1a5ca8}
+.note{font-size:.75em;color:#888}
+.backnumber{margin-top:8px;font-size:.8em}
+@media print{
+ @page{size:A4;margin:10mm}
+ body{background:#fff;font-size:9pt}
+ .wrap{max-width:none;padding:0}
+ header{border-radius:6px;padding:8px 14px;margin-bottom:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ header h1{font-size:1.15em}
+ article{box-shadow:none;border:1px solid #ddd;border-left-width:5px;padding:5px 10px;margin-bottom:5px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ p.sum{font-size:8.5pt}
+ p.impact{font-size:8pt}
+ a{color:#222;text-decoration:none}
+ .backnumber{display:none}
+ footer{margin-top:8px}
+}
 </style>
 </head>
 <body>
+<div class="wrap">
+
 <header>
-  <h1>損保代理店ニュースまとめ</h1>
-  <span class="date">2026年7月5日（日）発行</span>
+  <div>
+    <h1>📰 損害保険ニュースまとめ　<small style="font-size:.65em;font-weight:normal">大阪ＡＩ支社より</small></h1>
+    <div class="sub">2026年7月5日(日)発行|毎朝6時更新・損保実務に効くニュースをA4一枚で</div>
+  </div>
+  <img class="avatar" src="img/editor.jpg" alt="編集人" onload="this.style.display='block'" onerror="this.remove()">
 </header>
 
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>九州北部で線状降水帯　福岡・熊本・大分などで土砂災害に警戒続く</h2><span class="src">tenki.jp・NHK 2026/7/4</span>
+  <p class="sum">7月4日、梅雨前線の影響で九州北部を中心に大雨。福岡県那珂川市に土砂災害の危険警報（レベル4相当）が発表され、熊本・大分では線状降水帯の直前予測も出された。5日にかけても土砂災害・河川増水・浸水への警戒が呼びかけられている。</p>
+  <p class="impact">九州の契約者の被害有無を確認。火災保険（水災・風災）と車両保険の事故受付準備を。</p>
+</article>
+
 <article>
-  <span class="cat">制度</span><h2>金融庁、損保による代理店契約解除の実態調査へ　片山金融相「非常に遺憾」</h2><span class="src">日本経済新聞 2026/7/3</span>
+  <span class="cat">制度</span><h2><span class="icon">🏛️</span>金融庁、損保による代理店契約解除の実態調査へ　片山金融相「非常に遺憾」</h2><span class="src">日本経済新聞 2026/7/3</span>
   <p class="sum">片山金融相は7月3日の会見で、2026年度に本格運用が始まった「代理店業務品質評価制度」に関連し、損保による取引見直しの実態を調査すると表明。代理店への過度な負担や一方的な契約解除は望ましくないとの考えを示した。</p>
   <p class="impact">乗合先との対応経緯・是正取組みを記録化し、評価制度への対応状況を説明できる体制を。</p>
 </article>
 
-<article>
-  <span class="cat shijo">料率</span><h2>自動車保険の参考純率、平均14.4％引き上げ　過去最大の上げ幅</h2><span class="src">損害保険料率算出機構 2026/6/23届出・6/30審査通知</span>
-  <p class="sum">損害保険料率算出機構は自動車保険参考純率を平均14.4％引き上げる届出を行い、6月30日に適合性審査結果通知を受領。修理費上昇が主因で、2027年1月以降始期契約を想定。運転者の運行特性を反映する新たな料率区分も新設される。</p>
+<article class="shijo">
+  <span class="cat">料率</span><h2><span class="icon">🚗</span>自動車保険の参考純率、平均14.4％引き上げ　過去最大の上げ幅</h2><span class="src">損害保険料率算出機構 2026/6/23届出・6/30審査通知</span>
+  <p class="sum">損害保険料率算出機構は自動車保険参考純率を平均14.4％引き上げる届出を行い、6月30日に適合性審査結果通知を受領。修理費上昇が主因で、2027年1月以降始期契約への反映が想定される。傷害保険参考純率も同時改定（普通・家族傷害＋1.9％等）。</p>
   <p class="impact">2027年更改時の大幅値上げが濃厚。早めの説明準備と補償・特約の見直し提案を。</p>
 </article>
 
-<article>
-  <span class="cat kakusha">各社</span><h2>東京海上日動、海外旅行保険を7月から値上げ　短期で平均2割</h2><span class="src">日本経済新聞 2026/6ほか</span>
-  <p class="sum">東京海上日動は7月1日始期から個人向け海外旅行保険料を3年ぶりに改定。7日間以内で平均20％程度、長期渡航や高年齢層では30〜100％近い引き上げも。円安と海外医療費高騰による保険金支払増が背景。他の大手損保も同時期に値上げ。</p>
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🤝</span>三井住友海上×あいおい、2027年4月合併へ準備加速　新卒採用も一本化</h2><span class="src">新日本保険新聞・日刊自動車新聞ほか</span>
+  <p class="sum">MS&ADは2月に合併契約を締結し、新会社「三井住友海上あいおい損害保険」が2027年4月に発足予定。正味収保は単純合算約3兆円で国内首位となる見込み。2027年4月入社の新卒採用一本化など統合準備が進む。</p>
+  <p class="impact">両社乗合の代理店は委託契約・システム・帳票の統合スケジュールの情報収集を早めに。</p>
+</article>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">✈️</span>東京海上日動など、海外旅行保険を7月1日から値上げ　短期で平均2割</h2><span class="src">日本経済新聞ほか 2026/7/1始期〜</span>
+  <p class="sum">東京海上日動は7月1日始期契約から個人向け海外旅行保険料を3年ぶりに改定。7日間以内で平均20％程度、長期渡航や高年齢層では大幅な引き上げも。円安と海外医療費高騰が背景で、他の大手損保も同時期に値上げ。</p>
   <p class="impact">夏休みの渡航相談は新料率で見積り直しを。長期・シニア層は上げ幅大の旨を事前案内。</p>
 </article>
 
 <article>
-  <span class="cat">制度</span><h2>改正保険業法が6月1日施行　大規模乗合代理店に体制整備義務</h2><span class="src">金融庁</span>
-  <p class="sum">令和7年改正保険業法が2026年6月1日に施行。特定大規模乗合保険代理店への体制整備義務（法令等遵守責任者・統括責任者の設置等）、比較推奨販売ルールの整備、兼業代理店に関する保険会社側の体制整備義務拡大などが柱。</p>
+  <span class="cat">制度</span><h2><span class="icon">📜</span>改正保険業法が6月1日施行　大規模乗合代理店に体制整備義務</h2><span class="src">金融庁</span>
+  <p class="sum">令和7年改正保険業法が2026年6月1日に施行。特定大規模乗合保険代理店への体制整備義務（法令等遵守責任者・統括責任者の設置等）、比較推奨販売ルールの整備、便宜供与など禁止行為の拡大が柱。監督指針の改正も3月に確定済み。</p>
   <p class="impact">該当規模でなくても比較推奨販売の説明プロセスは要点検。募集手順書の更新を。</p>
 </article>
 
-<article>
-  <span class="cat shijo">料率</span><h2>傷害保険の参考純率も改定　普通・家族傷害は＋1.9％</h2><span class="src">損害保険料率算出機構 2026/6/23届出・6/30審査通知</span>
-  <p class="sum">自動車保険と同時に傷害保険参考純率も改定。普通傷害・家族傷害保険は平均1.9％引き上げ、交通事故傷害・ファミリー交通傷害保険は平均25.3％引き下げ。</p>
-  <p class="impact">傷害系商品の各社改定（値上げ・値下げ両方向）を注視し、更改提案の材料に。</p>
-</article>
-
-<article>
-  <span class="cat saigai">災害</span><h2>地震が各地で続発　岩手県沖で震度5弱・M6級、宮古島北西沖でM6.4</h2><span class="src">気象庁・各社報道 2026/6/28〜7/3</span>
-  <p class="sum">6月28日に岩手県沖でM6.1（最大震度5弱）、7月1日に岩手県沖M6.0・宮崎県でM5.1（いずれも震度4）、7月3日には宮古島北西沖でM6.4が発生。大きな被害報道は確認されていないが、有感地震が続いている。</p>
-  <p class="impact">地震保険の付帯率確認と未付帯契約者への提案の好機。問い合わせ増に備えを。</p>
-</article>
-
-<article>
-  <span class="cat">代理店</span><h2>代理店業務品質評価制度、2026年度から本格運用</h2><span class="src">日本損害保険協会</span>
-  <p class="sum">2025年度のトライアル運用を経て、業界共通の評価基準による自己点検チェックと第三者評価の本格運用が始まった。当初は大規模代理店が主対象。冒頭の金融庁実態調査もこの制度運用と関連する。</p>
+<article class="dairiten">
+  <span class="cat">代理店</span><h2><span class="icon">🔍</span>代理店業務品質評価制度、2026年度から本格運用　AI点検支援ツールも</h2><span class="src">日本損害保険協会・三井住友海上 2026/6</span>
+  <p class="sum">業界共通の評価基準による自己点検と第三者評価の本格運用が始まり、冒頭の金融庁実態調査もこの制度運用と関連。三井住友海上は6月、AIを活用した代理店自己点検の対話支援ツール導入を発表した。</p>
   <p class="impact">対象外の代理店も自己点検チェック項目を先取りし、品質態勢の整備を進めたい。</p>
 </article>
 
 <footer>
   <strong>出典一覧</strong>
   <ul>
-    <li><a href="https://www.nikkei.com/article/DGXZQOUB032IU0T00C26A7000000/">損保の代理店契約解除、金融庁が実態調査 片山金融相「非常に遺憾」（日本経済新聞）</a></li>
-    <li><a href="https://www.giroj.or.jp/ratemaking/automobile/">自動車保険参考純率（損害保険料率算出機構）</a> / <a href="https://www.seibikai.co.jp/archives/news/company-info/12232">参考純率が平均14.4％引上げ（整備会）</a></li>
-    <li><a href="https://www.nikkei.com/article/DGXZQOUB092JG0Z00C26A6000000/">東京海上が海外旅行保険を2割値上げ（日本経済新聞）</a> / <a href="https://withheart.jp/hoken/travel-insurance-20260531.html">大手損保、海外旅行保険を7月1日より値上げ（保険ウィズ）</a></li>
+    <li><a href="https://tenki.jp/forecaster/deskpart/2026/07/04/39589.html">九州北部で線状降水帯が発生するおそれ（tenki.jp）</a> / <a href="https://news.web.nhk/newsweb/na/na-k10015158771000">熊本 大分に線状降水帯直前予測（NHK）</a></li>
+    <li><a href="https://www.nikkei.com/article/DGXZQOUB032IU0T00C26A7000000/">損保の代理店契約解除、金融庁が実態調査（日本経済新聞）</a></li>
+    <li><a href="https://www.giroj.or.jp/ratemaking/automobile/">自動車保険参考純率（損害保険料率算出機構）</a> / <a href="https://www.giroj.or.jp/ratemaking/accident/">傷害保険参考純率（同）</a></li>
+    <li><a href="https://www.shinnihon-ins.co.jp/industry-news/industry-news-20260216-3/">三井住友海上とあいおいの合併最終合意（新日本保険新聞）</a> / <a href="https://news.yahoo.co.jp/articles/23067fa197fffce618acd295e5971ef527c3ec58">新卒採用を一本化（日刊自動車新聞）</a></li>
+    <li><a href="https://www.nikkei.com/article/DGXZQOUB092JG0Z00C26A6000000/">東京海上が海外旅行保険を2割値上げ（日本経済新聞）</a></li>
     <li><a href="https://www.fsa.go.jp/news/r7/hoken/20260330/20260330.html">令和7年保険業法改正に係る内閣府令等の公布（金融庁）</a> / <a href="https://www.fsa.go.jp/news/r7/hoken/20260330-3/20260330-3.html">監督指針の一部改正（金融庁）</a></li>
-    <li><a href="https://www.giroj.or.jp/ratemaking/accident/">傷害保険参考純率（損害保険料率算出機構）</a></li>
-    <li><a href="https://typhoon.yahoo.co.jp/weather/jp/earthquake/list/">地震の履歴一覧（Yahoo!天気・災害）</a> / <a href="https://earthquake.tenki.jp/bousai/earthquake/">地震情報（tenki.jp）</a></li>
     <li><a href="https://www.sonpo.or.jp/about/efforts/quality/index.html">代理店業務品質評価の枠組み（日本損害保険協会）</a></li>
   </ul>
   <p class="note">本ページは公開情報の要約です。詳細は各出典をご確認ください。</p>
@@ -107,5 +120,7 @@
     </ul>
   </div>
 </footer>
+
+</div>
 </body>
 </html>
