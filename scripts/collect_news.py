@@ -33,6 +33,7 @@ QUERIES = [
     "金融庁 保険",
     "自動車保険 保険料",
     "火災保険",
+    "地震保険",
     "東京海上 OR 損保ジャパン OR 三井住友海上 OR あいおいニッセイ",
     "大雨 OR 台風 OR 地震 警戒",
 ]
@@ -46,6 +47,52 @@ CAT_CLASS = {"制度": "", "災害": "saigai", "料率": "shijo", "市場": "shi
              "各社": "kakusha", "代理店": "dairiten"}
 CAT_ICON = {"制度": "🏛️", "災害": "🌧️", "料率": "📊", "市場": "📈",
             "各社": "🏢", "代理店": "🔍"}
+
+# ---------------------------------------------------------------- 選定ルール
+
+DISASTER_WORDS = ["大雨", "台風", "地震", "豪雨", "洪水", "土砂", "噴火", "津波",
+                  "警報", "線状降水帯", "猛暑", "大雪"]
+MAJOR_INSURERS = ["東京海上", "損保ジャパン", "三井住友海上", "あいおい", "SOMPO",
+                  "MS&AD", "ソニー損保", "チューリッヒ", "アクサ", "楽天損保",
+                  "セコム", "日新火災", "共栄火災"]
+
+# 無条件に除外する語 (投資信託の基準価額ページ・マーケットデータなど)
+EXCLUDE_WORDS = ["基準価額", "基準価格", "投資信託", "投信", "ファンド", "ETF",
+                 "NISA", "iDeCo"]
+
+# 生命保険のみの話題を示す語 (下の SONPO_WORDS が併記されていれば除外しない)
+LIFE_WORDS = ["生命保険", "生保", "医療保険", "がん保険", "終身保険", "養老保険",
+              "個人年金", "死亡保険", "学資保険", "日本生命", "第一生命",
+              "住友生命", "明治安田", "かんぽ生命", "アフラック", "メットライフ"]
+
+# 損保実務に関係することを示す語
+SONPO_WORDS = (["損害保険", "損保", "自動車保険", "火災保険", "地震保険",
+                "傷害保険", "賠償", "金融庁", "保険代理店", "代理店"]
+               + MAJOR_INSURERS)
+
+
+def is_excluded(title: str) -> bool:
+    """収集段階で除外すべき記事か (投信の基準価額ページ・生保のみの話題)。"""
+    if any(w in title for w in EXCLUDE_WORDS):
+        return True
+    if any(w in title for w in LIFE_WORDS) and not any(w in title for w in SONPO_WORDS):
+        return True
+    return False
+
+
+# フォールバック選定の優先度 (高いほど優先。複数該当は加点)
+PRIORITY_RULES: list[tuple[int, list[str]]] = [
+    (4, ["自動車保険", "火災保険", "地震保険"]),        # 主要損保商品
+    (4, DISASTER_WORDS),                                # 災害情報
+    (3, ["金融庁", "監督指針", "保険業法", "規制", "法改正"]),  # 監督動向
+    (3, MAJOR_INSURERS),                                # 大手各社の動向
+    (2, ["損害保険", "損保", "保険代理店", "代理店", "保険料", "料率"]),
+]
+
+
+def priority_score(title: str) -> int:
+    return sum(pt for pt, words in PRIORITY_RULES
+               if any(w in title for w in words))
 
 
 def fetch_rss(query: str) -> list[dict]:
@@ -84,6 +131,9 @@ def collect_candidates(now: datetime) -> list[dict]:
             continue
         for it in items:
             if it["published"] < cutoff:
+                continue
+            # 投信の基準価額ページ・生保のみの話題などを除外
+            if is_excluded(it["title"]):
                 continue
             # タイトルの重複(ほぼ同一記事)を除外
             norm = re.sub(r"\s+", "", it["title"]).split(" - ")[0][:25]
@@ -155,11 +205,20 @@ def select_with_claude(candidates: list[dict], now: datetime) -> list[dict] | No
 100〜130字程度の要約(である調)、代理店実務への影響(40〜60字、具体的なアクション)、
 出典表記を作成してください。
 
+優先して選ぶもの:
+- 損害保険商品(自動車保険・火災保険・地震保険)の商品・保険料・支払いに関する動き
+- 金融庁など当局の監督・規制・処分の動向
+- 災害情報(大雨・台風・地震など契約者被害につながるもの)。あれば先頭に配置する
+- 大手損保グループ各社(東京海上・SOMPO・MS&AD など)の経営・サービスの動向
+
+除外するもの(選ばない):
+- 投資信託の基準価額(基準価格)ページや、株価・マーケットデータだけの記事
+- 生命保険のみに関する話題(損保・代理店実務にも関係する場合は選んでよい)
+- 芸能・スポーツなど損保実務と無関係な話題
+
 注意:
 - 同一の話題は1本にまとめる
-- 災害情報(大雨・台風・地震など契約者被害につながるもの)があれば優先して先頭に
-- 憶測は書かず、見出しから確実に読み取れる範囲で要約する(不明な詳細は書かない)
-- 芸能・スポーツ・生命保険のみの話題など損保実務と無関係なものは除外する"""
+- 憶測は書かず、見出しから確実に読み取れる範囲で要約する(不明な詳細は書かない)"""
 
     try:
         client = anthropic.Anthropic()
@@ -200,15 +259,14 @@ def select_with_claude(candidates: list[dict], now: datetime) -> list[dict] | No
 # ------------------------------------------------------------ フォールバック
 
 def categorize(title: str) -> str:
+    # 商品名「地震保険」の「地震」は災害情報ではないため判定から除く
+    if any(w in title.replace("地震保険", "") for w in DISASTER_WORDS):
+        return "災害"
     rules = [
-        ("災害", ["大雨", "台風", "地震", "豪雨", "洪水", "土砂", "噴火", "津波",
-                  "警報", "線状降水帯", "猛暑", "大雪"]),
         ("代理店", ["代理店"]),
         ("料率", ["料率", "保険料", "値上げ", "引き上げ", "改定"]),
         ("制度", ["金融庁", "保険業法", "法改正", "規制", "監督指針", "制度"]),
-        ("各社", ["東京海上", "損保ジャパン", "三井住友海上", "あいおい", "SOMPO",
-                  "MS&AD", "ソニー損保", "チューリッヒ", "アクサ", "楽天損保",
-                  "セコム", "日新火災", "共栄火災"]),
+        ("各社", MAJOR_INSURERS),
     ]
     for cat, words in rules:
         if any(w in title for w in words):
@@ -217,8 +275,12 @@ def categorize(title: str) -> str:
 
 
 def select_fallback(candidates: list[dict]) -> list[dict]:
-    """AI なしの簡易選定: 新しい順に最大7本、災害を先頭へ。"""
-    picked = candidates[:7]
+    """AI なしの簡易選定: 優先度スコア順(同点は新しい順)に最大7本、災害を先頭へ。"""
+    ranked = sorted(
+        candidates,
+        key=lambda c: (-priority_score(c["title"]), -c["published"].timestamp()),
+    )
+    picked = ranked[:7]
     articles = []
     for c in picked:
         cat = categorize(c["title"])
