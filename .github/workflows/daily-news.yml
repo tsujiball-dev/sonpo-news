@@ -1,7 +1,11 @@
 # 毎朝のニュース自動収集・ページ更新
 #
 # - 毎日 20:30 UTC (= 日本時間 5:30) に起動。GitHub Actions の cron は
-#   数分〜30分程度遅延することがあるため、6時までに反映されるよう早めに設定。
+#   保証されたスケジュールではなく、負荷状況によって数分〜数時間遅延する
+#   ことがある(設定自体は正しくても実行がずれるのは GitHub 側の仕様)。
+# - push 後に GitHub Pages のデプロイ(pages-build-deployment)を監視し、
+#   一時的なエラー「Deployment failed, try again later.」で失敗した場合は
+#   自動で再実行する。
 # - リポジトリの Secrets に ANTHROPIC_API_KEY を設定すると Claude による
 #   記事選定・要約・「代理店実務への影響」コメント付きで生成される。
 #   未設定でもルールベースの簡易版(見出しのみ)で動作する。
@@ -15,6 +19,8 @@ on:
 
 permissions:
   contents: write
+  actions: write  # Pages デプロイ失敗時の再実行に必要
+  pages: write    # Pages ビルドの再リクエスト(フォールバック)に必要
 
 concurrency:
   group: daily-news
@@ -39,13 +45,59 @@ jobs:
         run: python scripts/collect_news.py
 
       - name: Commit and push
+        id: push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html archive/
           if git diff --cached --quiet; then
             echo "変更なし - コミットをスキップ"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "news: $(TZ=Asia/Tokyo date +%Y-%m-%d) 自動更新"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # GitHub Pages のデプロイは一時的なエラーで失敗することがある
+      # (これまでも「Deployment failed, try again later.」で複数回失敗し、
+      # 手動再実行で成功していた)。ここで完了を監視し、失敗時は自動再実行する。
+      - name: Wait for Pages deployment and retry on failure
+        if: steps.push.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(git rev-parse HEAD)
+          echo "コミット $sha の Pages デプロイを監視します"
+          for attempt in 1 2 3; do
+            run_json=""
+            # デプロイ完了まで最大 10 分待つ (15 秒 x 40 回)
+            for i in $(seq 1 40); do
+              run_json=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$sha" \
+                --jq '[.workflow_runs[] | select(.name == "pages build and deployment")][0]' \
+                2>/dev/null || echo "")
+              status=$(jq -r '.status // empty' <<< "$run_json")
+              if [ "$status" = "completed" ]; then
+                break
+              fi
+              sleep 15
+            done
+            run_id=$(jq -r '.id // empty' <<< "$run_json")
+            conclusion=$(jq -r '.conclusion // empty' <<< "$run_json")
+            if [ "$conclusion" = "success" ]; then
+              echo "Pages デプロイ成功 (attempt=$attempt)"
+              exit 0
+            fi
+            if [ -z "$run_id" ]; then
+              echo "::error::Pages のデプロイ実行が見つかりませんでした (Pages 設定を確認してください)"
+              exit 1
+            fi
+            echo "Pages デプロイが '$conclusion' で終了 - 再実行します (${attempt}回目)"
+            gh api -X POST "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/rerun-failed-jobs" \
+              || gh api -X POST "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/rerun" \
+              || gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" \
+              || echo "::warning::再実行 API の呼び出しに失敗しました"
+            sleep 20
+          done
+          echo "::error::再試行しても Pages デプロイが失敗しました。Actions タブの pages-build-deployment を確認してください"
+          exit 1
