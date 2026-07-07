@@ -434,6 +434,14 @@ def main() -> int:
     now = datetime.now(JST)
     print(f"INFO: 実行開始 {now.isoformat()}")
 
+    # cron を1日に複数回スケジュールしているため、既に本日号を生成済みなら
+    # 何もせず正常終了する(手動実行で FORCE_UPDATE=1 なら作り直す)
+    archive_dir = REPO_ROOT / "archive"
+    today_name = f"sonpo-news-{now.strftime('%Y%m%d')}.html"
+    if (archive_dir / today_name).exists() and os.environ.get("FORCE_UPDATE") != "1":
+        print(f"INFO: 本日号 ({today_name}) は生成済みのためスキップします")
+        return 0
+
     candidates = collect_candidates(now)
     print(f"INFO: 候補記事 {len(candidates)} 件")
     if len(candidates) < MIN_CANDIDATES:
@@ -447,9 +455,7 @@ def main() -> int:
         mode = "fallback"
     print(f"INFO: 掲載記事 {len(articles)} 件 (mode={mode})")
 
-    archive_dir = REPO_ROOT / "archive"
     archive_dir.mkdir(exist_ok=True)
-    today_name = f"sonpo-news-{now.strftime('%Y%m%d')}.html"
 
     # バックナンバー一覧(本日号を含む・新しい順・最大14件)
     names = {p.name for p in archive_dir.glob("sonpo-news-*.html")}
