@@ -1,16 +1,21 @@
 # 毎朝のニュース自動収集・ページ更新
 #
-# - 毎日 20:30 UTC (= 日本時間 5:30) に起動。GitHub Actions の cron は
-#   数分〜30分程度遅延することがあるため、6時までに反映されるよう早めに設定。
+# - 毎日 20:30 UTC (= 日本時間 5:30) に起動。加えて 21:15 UTC (= 6:15 JST) にも
+#   予備実行する。GitHub Actions の schedule トリガーは無料枠だと高負荷時に
+#   数十分〜半日程度遅延したり、まれに完全にスキップされることがあるため、
+#   1回目が起動しなかった場合に備えて2回目を設けている。
+#   その日すでに更新済みであれば2回目は何もせず終了する(二重生成防止)。
 # - リポジトリの Secrets に ANTHROPIC_API_KEY を設定すると Claude による
 #   記事選定・要約・「代理店実務への影響」コメント付きで生成される。
 #   未設定でもルールベースの簡易版(見出しのみ)で動作する。
-# - Actions タブの「Run workflow」からいつでも手動実行できる。
+# - Actions タブの「Run workflow」からいつでも手動実行できる(この場合は
+#   すでに更新済みでも強制的に再生成する)。
 name: daily-news
 
 on:
   schedule:
-    - cron: "30 20 * * *"  # 05:30 JST
+    - cron: "30 20 * * *"  # 05:30 JST (メイン)
+    - cron: "15 21 * * *"  # 06:15 JST (予備。未更新の場合のみ実行)
   workflow_dispatch:
 
 permissions:
@@ -26,19 +31,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check if already updated today
+        id: check
+        run: |
+          TODAY=$(TZ=Asia/Tokyo date +%Y%m%d)
+          if [ -f "archive/sonpo-news-${TODAY}.html" ]; then
+            echo "already_updated=true" >> "$GITHUB_OUTPUT"
+            echo "本日分 (archive/sonpo-news-${TODAY}.html) は既に存在します"
+          else
+            echo "already_updated=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-python@v5
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.already_updated == 'false'
         with:
           python-version: "3.12"
 
       - name: Install dependencies
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.already_updated == 'false'
         run: pip install anthropic
 
       - name: Collect news and rebuild page
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.already_updated == 'false'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/collect_news.py
 
       - name: Commit and push
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.already_updated == 'false'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
