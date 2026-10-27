@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>損害保険ニュースまとめ</title>
+<style>
+:root{--navy:#1a5276;--c-seido:#2471a3;--c-kakusha:#1e8449;--c-saigai:#c0392b;--c-shijo:#7d3c98;--c-dairiten:#b7770d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#f6f8fa;color:#2c3e50;line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:20px 16px}
+header{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:12px;padding:16px 22px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header h1{font-size:1.4em;letter-spacing:.04em}
+header .sub{font-size:.85em;opacity:.9}
+.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:2px solid #fff;display:none}
+article{background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:6px solid var(--c-seido)}
+article.saigai{border-left-color:var(--c-saigai)}
+article.kakusha{border-left-color:var(--c-kakusha)}
+article.shijo{border-left-color:var(--c-shijo)}
+article.dairiten{border-left-color:var(--c-dairiten)}
+.cat{display:inline-block;font-size:.72em;font-weight:bold;color:#fff;background:var(--c-seido);border-radius:20px;padding:2px 12px;margin-right:6px;vertical-align:middle}
+.saigai .cat{background:var(--c-saigai)}
+.kakusha .cat{background:var(--c-kakusha)}
+.shijo .cat{background:var(--c-shijo)}
+.dairiten .cat{background:var(--c-dairiten)}
+h2{font-size:1em;display:inline;vertical-align:middle}
+.icon{margin-right:4px}
+.src{font-size:.75em;color:#7f8c8d;margin-left:4px}
+p.sum{margin-top:5px;font-size:.88em}
+p.impact{margin-top:5px;font-size:.85em;background:#fef9e7;border-radius:6px;padding:3px 10px}
+p.impact::before{content:"💡 代理店実務への影響: ";font-weight:bold}
+footer{margin-top:14px;border-top:2px solid var(--navy);padding-top:8px;font-size:.8em;color:#555}
+footer ul{margin:4px 0 6px 1.2em}
+a{color:#1a5ca8}
+.note{font-size:.75em;color:#888}
+.backnumber{margin-top:8px;font-size:.8em}
+@media print{
+ @page{size:A4;margin:10mm}
+ body{background:#fff;font-size:9pt}
+ .wrap{max-width:none;padding:0}
+ header{border-radius:6px;padding:8px 14px;margin-bottom:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ header h1{font-size:1.15em}
+ article{box-shadow:none;border:1px solid #ddd;border-left-width:5px;padding:5px 10px;margin-bottom:5px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ p.sum{font-size:8.5pt}
+ p.impact{font-size:8pt}
+ a{color:#222;text-decoration:none}
+ .backnumber{display:none}
+ footer{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>📰 損害保険ニュースまとめ</h1>
+    <div class="sub">2026年10月28日(水)発行|毎朝6時更新・損保実務に効くニュースをA4一枚で</div>
+  </div>
+  <img class="avatar" src="img/editor.jpg" alt="編集人" onload="this.style.display='block'" onerror="this.remove()">
+</header>
+
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>台風31号(2026年) / 最新位置・進路予想</h2><span class="src">tenki.jp 2026/10/28</span>
+</article>
+
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>【波浪警報】北海道・石狩市に発表 04:18時点</h2><span class="src">ｄメニューニュース 2026/10/28</span>
+</article>
+
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>【波浪警報】北海道・留萌市、増毛町、小平町などに発表 04:08時点</h2><span class="src">ｄメニューニュース 2026/10/28</span>
+</article>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🏢</span>寄前【板状況】注文ランキング 【買いトップ】インフロニア 【売りトップ】東京海上 [08:33]</h2><span class="src">株探 2026/10/28</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>「サイバー保険」契約企業、無料リスク診断 12月からサーバーなど（朝日新聞）</h2><span class="src">Yahoo!ニュース 2026/10/28</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>2026年度JCSI（日本版顧客満足度指数）の調査において、 7年連続で損害保険業界第1位</h2><span class="src">MOTA 2026/10/28</span>
+</article>
+
+<article class="dairiten">
+  <span class="cat">代理店</span><h2><span class="icon">🔍</span>東京海上日動トップが語る代理店改革の本音…委託解消は「目的では全くない」、「ハ方式」廃止後に選ばれる新たな代理店像とは？</h2><span class="src">ダイヤモンド・オンライン 2026/10/28</span>
+</article>
+
+<footer>
+  <strong>出典一覧</strong>
+  <ul>
+    <li><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE9IVXJYUzNpS3BDa0RZZnBncWtTakFmU2dXZGZsLUZqcjlmZ0l5amkxRUs2NVhqRzZtUUI3TnZPVWY5ZzV4NVNWek1kUDV1QQ?oc=5">台風31号(2026年) / 最新位置・進路予想(tenki.jp 2026/10/28)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9RZG5ob1k2TjVPcWtZTkdacTF6UjU3b1A0MWFHem9KaEZIbDlQaENwTl9vV2JnckdpYTVWMUpqYkNCbTRfWDBNVmRJTWVaOTBSbnpVMnllbHF4QnVuQnlqYU5pakFCZGhob0hXSnFRUdIBdEFVX3lxTE5rM3E2aFRFa1l1dFZmeDlKcm1VbHpTbks3WWxSSWdmdDcyQlQ4YkFwS284U0pybFZtdDVfSkNGTU1CX2pJc3ExaVJTVmxmRzJWYWFUVXkwZ1NZeTEyckZPWVJleHM5Y0lVSDNXRFhoUWZFdUky?oc=5">【波浪警報】北海道・石狩市に発表 04:18時点(ｄメニューニュース 2026/10/28)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE1HVEZueVVab1k2SzlKaGRLV1BJNDBCcmlzcnB5dmYtQkR6MGt1YS1YNnA2dTdFMzJRam92ZjM3N1dCeVVtaVRlWFE3NUY5VWFBQXZhWURBd0FZdHV0TktTU0dRamt6NnNEX1RkdF9sd9IBdEFVX3lxTE9YSDF1ZDZIWl92OHNiNEtZczcwekNqQ1d6Q2lvSVMwQlVtVkVTdlh0emRXa3pPMV9tWjdEbk54VUVQblFCVUFTa296WVd0bGdPRUphV0NETVhlWV9vaGtleTY0Z19nWUlVcm1iV04tdHZWcHI5?oc=5">【波浪警報】北海道・留萌市、増毛町、小平町などに発表 04:08時点(ｄメニューニュース 2026/10/28)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9LLWFOUkNLVzZWb1hZZFd3UXhBcDdiNUpmVnJjME9ZblZSdjltWjVXNUJ5XzdES3hKblBreG9Yby1lb3Uxd05fYmdIOWJ0ZlZLaUE?oc=5">寄前【板状況】注文ランキング 【買いトップ】インフロニア 【売りトップ】東京海上 [08:33](株探 2026/10/28)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFAyNjZRX21mVGNiNGdxX01sYWpXQ0ZqVHNLU2dUUG5wQ2lhd01vT1RmNHFWanpIMjM1MHZwY25pdUF5T2lkN2x4U2txSURSZWhwSDBfNlpNT2o2Z2c2bHFLVzRjRFNSY3dDWTVZUm9SZV9zU00tazlmS0lMZFB5aEU?oc=5">「サイバー保険」契約企業、無料リスク診断 12月からサーバーなど（朝日新聞）(Yahoo!ニュース 2026/10/28)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiSkFVX3lxTE1ETnp2bXNqdG5oQnNDNXE2UHNwdXdnX2luRkdQallraEJJZTZ0M3ZQNU9zNExGbVhJX2QwVFptVGFQQjlneEtHMXlB?oc=5">2026年度JCSI（日本版顧客満足度指数）の調査において、 7年連続で損害保険業界第1位(MOTA 2026/10/28)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiTEFVX3lxTE14bEVpSTNZRUJNMmJ6M2VhQVR0cDJDQ2pya0R0TlBnRGRDdlFPQjVITU9BTHRPbUpnS2NJTk01MTZyRmgwTWlHb2FISUfSAU9BVV95cUxPWGFZR3VPbHRoR2Z1QmtrNmx6QnRDRWF0RTg4WVRZSEVkcnJ2NUxIa0x3LWFzUGhoSUxRTDhYN2tFMHpqT1JuVTE5N0tDWDZz?oc=5">東京海上日動トップが語る代理店改革の本音…委託解消は「目的では全くない」、「ハ方式」廃止後に選ばれる新たな代理店像とは？(ダイヤモンド・オンライン 2026/10/28)</a></li>
+  </ul>
+  <p class="note">本ページは公開情報の自動収集・要約です。詳細は各出典をご確認ください。</p>
+  <div class="backnumber"><strong>バックナンバー</strong>
+    <ul>
+      <li><a href="sonpo-news-20261028.html">2026年10月28日号</a></li>
+      <li><a href="sonpo-news-20261027.html">2026年10月27日号</a></li>
+      <li><a href="sonpo-news-20261026.html">2026年10月26日号</a></li>
+      <li><a href="sonpo-news-20261025.html">2026年10月25日号</a></li>
+      <li><a href="sonpo-news-20261024.html">2026年10月24日号</a></li>
+      <li><a href="sonpo-news-20261023.html">2026年10月23日号</a></li>
+      <li><a href="sonpo-news-20261022.html">2026年10月22日号</a></li>
+      <li><a href="sonpo-news-20261021.html">2026年10月21日号</a></li>
+      <li><a href="sonpo-news-20261020.html">2026年10月20日号</a></li>
+      <li><a href="sonpo-news-20261019.html">2026年10月19日号</a></li>
+      <li><a href="sonpo-news-20261018.html">2026年10月18日号</a></li>
+      <li><a href="sonpo-news-20261017.html">2026年10月17日号</a></li>
+      <li><a href="sonpo-news-20261016.html">2026年10月16日号</a></li>
+      <li><a href="sonpo-news-20261015.html">2026年10月15日号</a></li>
+    </ul>
+  </div>
+  <p style="text-align:center;font-size:.85em;margin-top:10px;color:#7f8c8d"><a href="mailto:s-tsuji@universal-life.co.jp" style="color:#7f8c8d;text-decoration:none">大阪ＡＩ支社</a></p>
+</footer>
+
+</div>
+</body>
+</html>
