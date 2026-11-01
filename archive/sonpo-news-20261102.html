@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>損害保険ニュースまとめ</title>
+<style>
+:root{--navy:#1a5276;--c-seido:#2471a3;--c-kakusha:#1e8449;--c-saigai:#c0392b;--c-shijo:#7d3c98;--c-dairiten:#b7770d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#f6f8fa;color:#2c3e50;line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:20px 16px}
+header{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:12px;padding:16px 22px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header h1{font-size:1.4em;letter-spacing:.04em}
+header .sub{font-size:.85em;opacity:.9}
+.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:2px solid #fff;display:none}
+article{background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:6px solid var(--c-seido)}
+article.saigai{border-left-color:var(--c-saigai)}
+article.kakusha{border-left-color:var(--c-kakusha)}
+article.shijo{border-left-color:var(--c-shijo)}
+article.dairiten{border-left-color:var(--c-dairiten)}
+.cat{display:inline-block;font-size:.72em;font-weight:bold;color:#fff;background:var(--c-seido);border-radius:20px;padding:2px 12px;margin-right:6px;vertical-align:middle}
+.saigai .cat{background:var(--c-saigai)}
+.kakusha .cat{background:var(--c-kakusha)}
+.shijo .cat{background:var(--c-shijo)}
+.dairiten .cat{background:var(--c-dairiten)}
+h2{font-size:1em;display:inline;vertical-align:middle}
+.icon{margin-right:4px}
+.src{font-size:.75em;color:#7f8c8d;margin-left:4px}
+p.sum{margin-top:5px;font-size:.88em}
+p.impact{margin-top:5px;font-size:.85em;background:#fef9e7;border-radius:6px;padding:3px 10px}
+p.impact::before{content:"💡 代理店実務への影響: ";font-weight:bold}
+footer{margin-top:14px;border-top:2px solid var(--navy);padding-top:8px;font-size:.8em;color:#555}
+footer ul{margin:4px 0 6px 1.2em}
+a{color:#1a5ca8}
+.note{font-size:.75em;color:#888}
+.backnumber{margin-top:8px;font-size:.8em}
+@media print{
+ @page{size:A4;margin:10mm}
+ body{background:#fff;font-size:9pt}
+ .wrap{max-width:none;padding:0}
+ header{border-radius:6px;padding:8px 14px;margin-bottom:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ header h1{font-size:1.15em}
+ article{box-shadow:none;border:1px solid #ddd;border-left-width:5px;padding:5px 10px;margin-bottom:5px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ p.sum{font-size:8.5pt}
+ p.impact{font-size:8pt}
+ a{color:#222;text-decoration:none}
+ .backnumber{display:none}
+ footer{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>📰 損害保険ニュースまとめ</h1>
+    <div class="sub">2026年11月2日(月)発行|毎朝6時更新・損保実務に効くニュースをA4一枚で</div>
+  </div>
+  <img class="avatar" src="img/editor.jpg" alt="編集人" onload="this.style.display='block'" onerror="this.remove()">
+</header>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🏢</span>【キオクシア、東京海上…株式分割ブームの“お宝株”はどれだ？】年間配当収入800万円超の億り人・Rickyさんが注目する「少額で買える増配期待株」</h2><span class="src">マネーポストWEB 2026/11/02</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>損保大手が宮城・南三陸で研修 山や海の循環学ぶ</h2><span class="src">河北新報オンライン 2026/11/02</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>資産形成の新定石｜第57回 個人賠償責任保険で安心を買う</h2><span class="src">ニッキンONLINE 2026/11/02</span>
+</article>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🏢</span>【保険窓販情報】三井住友海上あいおい生命、エーザイと認知症教育で協業</h2><span class="src">ニッキンONLINE 2026/11/02</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>サイバー保険のジレンマ 油断が生む防衛の死角、加入企業が狙われるケースも</h2><span class="src">日経ビジネス電子版 2026/11/02</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">料率</span><h2><span class="icon">📊</span>サイバー保険問い合わせ3倍 高まる危機感、GMO問題で保険料上昇懸念</h2><span class="src">日本経済新聞 2026/11/02</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>眠る保険金10兆3000億ウォン…「私の保険探し」で照会・請求</h2><span class="src">조선일보 2026/11/02</span>
+</article>
+
+<footer>
+  <strong>出典一覧</strong>
+  <ul>
+    <li><a href="https://news.google.com/rss/articles/CBMiR0FVX3lxTE9fMkxEMHJnOG4zdFV3cVp6THRibGN0c1gzaW90RkJUQzFIUkhUem84UUlPM29YTjhZRkZLdWxCWVJvc1d2RV80?oc=5">【キオクシア、東京海上…株式分割ブームの“お宝株”はどれだ？】年間配当収入800万円超の億り人・Rickyさんが注目する「少額で買える増配期待株」(マネーポストWEB 2026/11/02)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBXUXZCR1ZOS0pRVTh1ajJLTnlGdFJiVVhfNW1Bb0hxeGdXbUpKOVR6Y0lLTHpvOUVxaHQ3cGFJUy1RS05YUjFaT3NjczhvN19WYUt0NjVkckZmNXc?oc=5">損保大手が宮城・南三陸で研修 山や海の循環学ぶ(河北新報オンライン 2026/11/02)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE5yNUpDZ1p3cUw1dVotSlFzRmpkdkdaQmpMektmak0tU0RodVpCNXJpSkpSeGdLSW0xQmVEU0lDVkpNcmo2STB6MzlfWTNkd0xFNGI1YXEzSFdlazFXSGtrN3FkWFI5NW9EVkE?oc=5">資産形成の新定石｜第57回 個人賠償責任保険で安心を買う(ニッキンONLINE 2026/11/02)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE1PNVZBUHM4cUd2dlpXS2I2c1FFeUNLQzZHbHpDS3hlS1Z0NmxSZExLcDU4aWVqWm9UZ1RsWjFDSE1QSE90NkdNVVlzY1k1bHZUYTd3SGFRa2FGVXlOT2tKZWgyS1RCNWFJTVE?oc=5">【保険窓販情報】三井住友海上あいおい生命、エーザイと認知症教育で協業(ニッキンONLINE 2026/11/02)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1CakNqblZkTm5rTnRRN1h1TmxEV1Y3STNVLTNnbkQwbjBTS1VtczRGbEw3U1VvNUVCMnpsRTFlQ1dGRVlCclRIVk1yQlAycm5jdGVlZmFXMzhGZUFrMGJkY2t2ck5IM0U?oc=5">サイバー保険のジレンマ 油断が生む防衛の死角、加入企業が狙われるケースも(日経ビジネス電子版 2026/11/02)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE05VE42SmlpTXBlZzJCeGlUUlFYMFR6MmZ1VVBkQUEtR2gySVFzQktldEdRVDQzLVZmX05hNFI2dDRMRjRpellBdDI4cnlRV1BzaTFmY0pYS2JkOUN6Q0pZWVhOMDd5djU3am0wdQ?oc=5">サイバー保険問い合わせ3倍 高まる危機感、GMO問題で保険料上昇懸念(日本経済新聞 2026/11/02)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQc0xxLVJQdjVjWk9TQjN2RFdxeC1YZ1JCTmRNR09vNm50dXZvS1RjN0UtMzlLMkpOeE9GVWRleUhrM2RKS29zcEJUM3ItM19QSmNIaGdGY3NNRU5kRGdydW5uX2tybDFrTVpmUDI2TXFlQnplbURfTV9VclpmbDdXQQ?oc=5">眠る保険金10兆3000億ウォン…「私の保険探し」で照会・請求(조선일보 2026/11/02)</a></li>
+  </ul>
+  <p class="note">本ページは公開情報の自動収集・要約です。詳細は各出典をご確認ください。</p>
+  <div class="backnumber"><strong>バックナンバー</strong>
+    <ul>
+      <li><a href="sonpo-news-20261102.html">2026年11月2日号</a></li>
+      <li><a href="sonpo-news-20261101.html">2026年11月1日号</a></li>
+      <li><a href="sonpo-news-20261031.html">2026年10月31日号</a></li>
+      <li><a href="sonpo-news-20261030.html">2026年10月30日号</a></li>
+      <li><a href="sonpo-news-20261029.html">2026年10月29日号</a></li>
+      <li><a href="sonpo-news-20261028.html">2026年10月28日号</a></li>
+      <li><a href="sonpo-news-20261027.html">2026年10月27日号</a></li>
+      <li><a href="sonpo-news-20261026.html">2026年10月26日号</a></li>
+      <li><a href="sonpo-news-20261025.html">2026年10月25日号</a></li>
+      <li><a href="sonpo-news-20261024.html">2026年10月24日号</a></li>
+      <li><a href="sonpo-news-20261023.html">2026年10月23日号</a></li>
+      <li><a href="sonpo-news-20261022.html">2026年10月22日号</a></li>
+      <li><a href="sonpo-news-20261021.html">2026年10月21日号</a></li>
+      <li><a href="sonpo-news-20261020.html">2026年10月20日号</a></li>
+    </ul>
+  </div>
+  <p style="text-align:center;font-size:.85em;margin-top:10px;color:#7f8c8d"><a href="mailto:s-tsuji@universal-life.co.jp" style="color:#7f8c8d;text-decoration:none">大阪ＡＩ支社</a></p>
+</footer>
+
+</div>
+</body>
+</html>
