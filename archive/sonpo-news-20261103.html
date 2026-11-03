@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>損害保険ニュースまとめ</title>
+<style>
+:root{--navy:#1a5276;--c-seido:#2471a3;--c-kakusha:#1e8449;--c-saigai:#c0392b;--c-shijo:#7d3c98;--c-dairiten:#b7770d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#f6f8fa;color:#2c3e50;line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:20px 16px}
+header{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:12px;padding:16px 22px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header h1{font-size:1.4em;letter-spacing:.04em}
+header .sub{font-size:.85em;opacity:.9}
+.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:2px solid #fff;display:none}
+article{background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:6px solid var(--c-seido)}
+article.saigai{border-left-color:var(--c-saigai)}
+article.kakusha{border-left-color:var(--c-kakusha)}
+article.shijo{border-left-color:var(--c-shijo)}
+article.dairiten{border-left-color:var(--c-dairiten)}
+.cat{display:inline-block;font-size:.72em;font-weight:bold;color:#fff;background:var(--c-seido);border-radius:20px;padding:2px 12px;margin-right:6px;vertical-align:middle}
+.saigai .cat{background:var(--c-saigai)}
+.kakusha .cat{background:var(--c-kakusha)}
+.shijo .cat{background:var(--c-shijo)}
+.dairiten .cat{background:var(--c-dairiten)}
+h2{font-size:1em;display:inline;vertical-align:middle}
+.icon{margin-right:4px}
+.src{font-size:.75em;color:#7f8c8d;margin-left:4px}
+p.sum{margin-top:5px;font-size:.88em}
+p.impact{margin-top:5px;font-size:.85em;background:#fef9e7;border-radius:6px;padding:3px 10px}
+p.impact::before{content:"💡 代理店実務への影響: ";font-weight:bold}
+footer{margin-top:14px;border-top:2px solid var(--navy);padding-top:8px;font-size:.8em;color:#555}
+footer ul{margin:4px 0 6px 1.2em}
+a{color:#1a5ca8}
+.note{font-size:.75em;color:#888}
+.backnumber{margin-top:8px;font-size:.8em}
+@media print{
+ @page{size:A4;margin:10mm}
+ body{background:#fff;font-size:9pt}
+ .wrap{max-width:none;padding:0}
+ header{border-radius:6px;padding:8px 14px;margin-bottom:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ header h1{font-size:1.15em}
+ article{box-shadow:none;border:1px solid #ddd;border-left-width:5px;padding:5px 10px;margin-bottom:5px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ p.sum{font-size:8.5pt}
+ p.impact{font-size:8pt}
+ a{color:#222;text-decoration:none}
+ .backnumber{display:none}
+ footer{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>📰 損害保険ニュースまとめ</h1>
+    <div class="sub">2026年11月3日(火)発行|毎朝6時更新・損保実務に効くニュースをA4一枚で</div>
+  </div>
+  <img class="avatar" src="img/editor.jpg" alt="編集人" onload="this.style.display='block'" onerror="this.remove()">
+</header>
+
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>【台風情報】台風31号（インファ）海上を北のち北東に進む見込み 小笠原諸島・伊豆諸島では5日（木）から6日（金）にかけて土砂災害・暴風・高波に注意・警戒（3日午前9時現在）（tbc東北放送）</h2><span class="src">Yahoo!ニュース 2026/11/03</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">料率</span><h2><span class="icon">📊</span>JCB、三井ダイレクト損保の自動車・バイク保険でJ-POINT＋2％ 年間保険料15万円で上限3000ポイント</h2><span class="src">Infoseek 2026/11/03</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>利用者約5,000人が選んだおすすめのペット保険、最新2026年総合1位は？ ～シニア、多頭飼い、窓口精算別でも発表</h2><span class="src">オリコンニュース 2026/11/03</span>
+</article>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🏢</span>東京海上･宇宙関連株式ファンド(為替ヘッジなし)【49311189】：基準価格・投資信託情報</h2><span class="src">Yahoo!ファイナンス 2026/11/03</span>
+</article>
+
+<article class="dairiten">
+  <span class="cat">代理店</span><h2><span class="icon">🔍</span>火災保険「水災補償」に入ってる?保険代理店が教える浸水・水没への備え（FNNプライムオンライン）</h2><span class="src">Yahoo!ニュース 2026/11/03</span>
+</article>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🏢</span>「ＳＤＧｓフェス」開幕 東京海上と十六ＦＧ 企業の取り組み紹介 - www.chukei</h2><span class="src">www.chukei-news.co.jp 2026/11/03</span>
+</article>
+
+<article>
+  <span class="cat">制度</span><h2><span class="icon">🏛️</span>金融庁、生保破綻時の保護見直し 恒久化、業界負担増条件に</h2><span class="src">ニッキンONLINE 2026/11/03</span>
+</article>
+
+<footer>
+  <strong>出典一覧</strong>
+  <ul>
+    <li><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE9nbUg3WEhYdkw0MXhqdEtNa2NoUEV2NEd1RGZZUkZvUzJ4Q19mdTdvN3lBX1NtemNwXzJ4QmRiME01dklndllDVWE3SjBzQWZQeDJtSnQwMGVwRzdaRm9pLWVteExmRzZlbXpnTjFjMXd1VVFQLW5BZU9pTHc0bFU?oc=5">【台風情報】台風31号（インファ）海上を北のち北東に進む見込み 小笠原諸島・伊豆諸島では5日（木）から6日（金）にかけて土砂災害・暴風・高波に注意・警戒（3日午前9時現在）（tbc東北放送）(Yahoo!ニュース 2026/11/03)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1UZzhyX3pLRXAwTElhdlFfQnNWakY4RzZWY1F5Wm9SSzRhLWkzU3M0emtTYmxoTndNVE1feGR1STRKSFZocHFtdjB2NnZ2VUNKcTJrR2paZGYyU1pocUZV?oc=5">JCB、三井ダイレクト損保の自動車・バイク保険でJ-POINT＋2％ 年間保険料15万円で上限3000ポイント(Infoseek 2026/11/03)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTFBwRXlELUlzSjQ3NXE3OFJQWnRUbkZHNE9USlk1SDFETGhLYW9OSldtdlg2R3gyaC1ZeWNiRXpTcVd0ZUt0NkdDQzZhMlp1d1k?oc=5">利用者約5,000人が選んだおすすめのペット保険、最新2026年総合1位は？ ～シニア、多頭飼い、窓口精算別でも発表(オリコンニュース 2026/11/03)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE1nM1RKRURfQk5lNkRseTViaG1CQkphMjV4ZHJrZlg4QVQyV1VDdTJ2S2NOeThsUFFZQWpkckZvRWxBWVBsdllNRWRlT1VJOFNIaVRmYg?oc=5">東京海上･宇宙関連株式ファンド(為替ヘッジなし)【49311189】：基準価格・投資信託情報(Yahoo!ファイナンス 2026/11/03)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBMbm4talIwa3hZY2VfNktqTUFrbUxYSVpaMFZLUlluWVl1VEY2NGhfcGQwVU1jZGRKY1VTamQ0a3ZMLVFYbnpWM2dLSTd5RTV5VVQ1SFpuanZlZWZvRFQwU0czNHNoS1I4YUZkbXNlbzdmZ3ZBVTBXcS1pTnVlbDA?oc=5">火災保険「水災補償」に入ってる?保険代理店が教える浸水・水没への備え（FNNプライムオンライン）(Yahoo!ニュース 2026/11/03)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTFBVVl80TE5UQWpreUpFVnhQcU5oUGVCYXFxbGlJTThzY1g5VHFZdTdVb2ZUWUI3MTdtMXlGbk9jclFOZXZESWZ4ZnFwMjNDdGhUTUxPVVROcXhhanlXYU5XOFg2MnY3eklHRDgxcDYteVRuTG8?oc=5">「ＳＤＧｓフェス」開幕 東京海上と十六ＦＧ 企業の取り組み紹介 - www.chukei(www.chukei-news.co.jp 2026/11/03)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTFBZcUIwTy1wc3RLWVZqV1Q0NUVobGtYT3lPaTVUMkFwelpZTzFsYncwOUJNTFhPRV9TbS1mR0w1NzFONlg1V0cwNXNUWmx4bWRyY0JNTnhR?oc=5">金融庁、生保破綻時の保護見直し 恒久化、業界負担増条件に(ニッキンONLINE 2026/11/03)</a></li>
+  </ul>
+  <p class="note">本ページは公開情報の自動収集・要約です。詳細は各出典をご確認ください。</p>
+  <div class="backnumber"><strong>バックナンバー</strong>
+    <ul>
+      <li><a href="sonpo-news-20261103.html">2026年11月3日号</a></li>
+      <li><a href="sonpo-news-20261102.html">2026年11月2日号</a></li>
+      <li><a href="sonpo-news-20261101.html">2026年11月1日号</a></li>
+      <li><a href="sonpo-news-20261031.html">2026年10月31日号</a></li>
+      <li><a href="sonpo-news-20261030.html">2026年10月30日号</a></li>
+      <li><a href="sonpo-news-20261029.html">2026年10月29日号</a></li>
+      <li><a href="sonpo-news-20261028.html">2026年10月28日号</a></li>
+      <li><a href="sonpo-news-20261027.html">2026年10月27日号</a></li>
+      <li><a href="sonpo-news-20261026.html">2026年10月26日号</a></li>
+      <li><a href="sonpo-news-20261025.html">2026年10月25日号</a></li>
+      <li><a href="sonpo-news-20261024.html">2026年10月24日号</a></li>
+      <li><a href="sonpo-news-20261023.html">2026年10月23日号</a></li>
+      <li><a href="sonpo-news-20261022.html">2026年10月22日号</a></li>
+      <li><a href="sonpo-news-20261021.html">2026年10月21日号</a></li>
+    </ul>
+  </div>
+  <p style="text-align:center;font-size:.85em;margin-top:10px;color:#7f8c8d"><a href="mailto:s-tsuji@universal-life.co.jp" style="color:#7f8c8d;text-decoration:none">大阪ＡＩ支社</a></p>
+</footer>
+
+</div>
+</body>
+</html>
