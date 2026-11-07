@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>損害保険ニュースまとめ</title>
+<style>
+:root{--navy:#1a5276;--c-seido:#2471a3;--c-kakusha:#1e8449;--c-saigai:#c0392b;--c-shijo:#7d3c98;--c-dairiten:#b7770d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#f6f8fa;color:#2c3e50;line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:20px 16px}
+header{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:12px;padding:16px 22px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header h1{font-size:1.4em;letter-spacing:.04em}
+header .sub{font-size:.85em;opacity:.9}
+.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:2px solid #fff;display:none}
+article{background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:6px solid var(--c-seido)}
+article.saigai{border-left-color:var(--c-saigai)}
+article.kakusha{border-left-color:var(--c-kakusha)}
+article.shijo{border-left-color:var(--c-shijo)}
+article.dairiten{border-left-color:var(--c-dairiten)}
+.cat{display:inline-block;font-size:.72em;font-weight:bold;color:#fff;background:var(--c-seido);border-radius:20px;padding:2px 12px;margin-right:6px;vertical-align:middle}
+.saigai .cat{background:var(--c-saigai)}
+.kakusha .cat{background:var(--c-kakusha)}
+.shijo .cat{background:var(--c-shijo)}
+.dairiten .cat{background:var(--c-dairiten)}
+h2{font-size:1em;display:inline;vertical-align:middle}
+.icon{margin-right:4px}
+.src{font-size:.75em;color:#7f8c8d;margin-left:4px}
+p.sum{margin-top:5px;font-size:.88em}
+p.impact{margin-top:5px;font-size:.85em;background:#fef9e7;border-radius:6px;padding:3px 10px}
+p.impact::before{content:"💡 代理店実務への影響: ";font-weight:bold}
+footer{margin-top:14px;border-top:2px solid var(--navy);padding-top:8px;font-size:.8em;color:#555}
+footer ul{margin:4px 0 6px 1.2em}
+a{color:#1a5ca8}
+.note{font-size:.75em;color:#888}
+.backnumber{margin-top:8px;font-size:.8em}
+@media print{
+ @page{size:A4;margin:10mm}
+ body{background:#fff;font-size:9pt}
+ .wrap{max-width:none;padding:0}
+ header{border-radius:6px;padding:8px 14px;margin-bottom:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ header h1{font-size:1.15em}
+ article{box-shadow:none;border:1px solid #ddd;border-left-width:5px;padding:5px 10px;margin-bottom:5px;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ p.sum{font-size:8.5pt}
+ p.impact{font-size:8pt}
+ a{color:#222;text-decoration:none}
+ .backnumber{display:none}
+ footer{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>📰 損害保険ニュースまとめ</h1>
+    <div class="sub">2026年11月8日(日)発行|毎朝6時更新・損保実務に効くニュースをA4一枚で</div>
+  </div>
+  <img class="avatar" src="img/editor.jpg" alt="編集人" onload="this.style.display='block'" onerror="this.remove()">
+</header>
+
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>関東や伊豆諸島 大雨災害に警戒 11月として最大の雨量も観測</h2><span class="src">Yahoo!ニュース 2026/11/08</span>
+</article>
+
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>【速報】気象庁が緊急地震速報 愛知県で地震 強い揺れ警戒（2026年11月7日掲載）｜日テレNEWS NNN</h2><span class="src">日テレNEWS NNN 2026/11/08</span>
+</article>
+
+<article class="saigai">
+  <span class="cat">災害</span><h2><span class="icon">🌧️</span>北海道・東北で暴風や高波に警戒 大雪による交通障害にも注意（2026年11月7日掲載）｜日テレNEWS NNN</h2><span class="src">日テレNEWS NNN 2026/11/07</span>
+</article>
+
+<article class="shijo">
+  <span class="cat">市場</span><h2><span class="icon">📈</span>浜松市浜名区で震度5弱 静岡県西部震源、M5．7 「警戒を怠らないで」県が呼びかけ（静岡新聞DIGITAL）</h2><span class="src">Yahoo!ニュース 2026/11/08</span>
+</article>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🏢</span>【米ドル円】東京海上アセットマネジメントが振り返る…11月第1週の「世界経済」の動き</h2><span class="src">ゴールドオンライン 2026/11/08</span>
+</article>
+
+<article class="dairiten">
+  <span class="cat">代理店</span><h2><span class="icon">🔍</span>【提携・M&amp;A・新会社】NEXYZ.・三井住友海上：省エネ設備導入支援で業務提携、保険代理店網を通じ地域企業の設備更新を促進</h2><span class="src">みんなの広報宣伝部 2026/11/08</span>
+</article>
+
+<article class="kakusha">
+  <span class="cat">各社</span><h2><span class="icon">🏢</span>楽天損保、松山市へカーブミラーを企業版ふるさと納税により寄附</h2><span class="src">山陽新聞 2026/11/07</span>
+</article>
+
+<footer>
+  <strong>出典一覧</strong>
+  <ul>
+    <li><a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE5KRGlVcDd6QTA2SDU0TldTa1dEb0MwRzY5Z0t3RV90RDY2aXZPNzJNMnhWa2l1enlQNktuQWpYREVqakFTbTBKWVFRTTE4WThL?oc=5">関東や伊豆諸島 大雨災害に警戒 11月として最大の雨量も観測(Yahoo!ニュース 2026/11/08)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBIT0ItQzQ4dGhWRjVFUlpld29LVnlMQjFKVU94RUZFYmVwb1ZkVnF6Sm1wRGJzQkpHOEpqVHNDT2RoM3F1MThsOFhrcUp4NDVBVXBOSnNWTEJERWVnM0JfVVRISWNQd3lERUZVdGMxUnE5NG1NMlctOUkzZlI?oc=5">【速報】気象庁が緊急地震速報 愛知県で地震 強い揺れ警戒（2026年11月7日掲載）｜日テレNEWS NNN(日テレNEWS NNN 2026/11/08)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE16WFJJa1czdkxUckxmWm9fT0FUMFZvREZkb3JXaGZLcEo3TTdrZy1peTRvaDdwa0oxejhZUzR2Q1pON0drU0FVRk45eWpRU0oyWW52bnN2SmJONTE4dnJSbG9FMEhoRDh2NGpLNnlMVnIwUmtHOHpGcS1PaDg?oc=5">北海道・東北で暴風や高波に警戒 大雪による交通障害にも注意（2026年11月7日掲載）｜日テレNEWS NNN(日テレNEWS NNN 2026/11/07)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE9vS1A0UDk5RjNBQWJYLWYwcTZuTzFETTEzT0xDNWtDeFRrNm5DeVJieWlnOHB5NE9rS3NKSXFXbXhsUkdaSHMzcXJIM0d0alZWTW9kd3Nhb3VLMWUxV05JWVJmX2tyQlA1bThjRkFFVTFvVmtOb1RiRnQ4NldzeEU?oc=5">浜松市浜名区で震度5弱 静岡県西部震源、M5．7 「警戒を怠らないで」県が呼びかけ（静岡新聞DIGITAL）(Yahoo!ニュース 2026/11/08)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE1Fc2pnZklVUC1sV1luTHJtOHctY1c5dFRwMVFId29rMVYxbTdOelNmNDRZTDZmQ1MzeVN0a2ctVU5iMElTd2tyWmVrdklpaFVocnc?oc=5">【米ドル円】東京海上アセットマネジメントが振り返る…11月第1週の「世界経済」の動き(ゴールドオンライン 2026/11/08)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE1Sc0dPcGNzaTNpZmJZRUVGc2h2dzN2bTgwWF9UN18yVkZpRFhQOFhIX2hkNE14TmpYeGFzOWRDZFZIa3VlMUZUN0dXNzc3cUpLQmp1aTN2OFBYRm9ZNFJ3RTVIdWNnVElCakZFenNaVmx6dw?oc=5">【提携・M&amp;A・新会社】NEXYZ.・三井住友海上：省エネ設備導入支援で業務提携、保険代理店網を通じ地域企業の設備更新を促進(みんなの広報宣伝部 2026/11/08)</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE1sRGNfTXllUnM1OWR0ZXI4MnRwYld6bUI4WVZYcGNEYVI5dTFvcHVhY1BucldPX1F3d0NSNHB3OVhvQmItbzVzdGpXQVlTcDR6cGc?oc=5">楽天損保、松山市へカーブミラーを企業版ふるさと納税により寄附(山陽新聞 2026/11/07)</a></li>
+  </ul>
+  <p class="note">本ページは公開情報の自動収集・要約です。詳細は各出典をご確認ください。</p>
+  <div class="backnumber"><strong>バックナンバー</strong>
+    <ul>
+      <li><a href="sonpo-news-20261108.html">2026年11月8日号</a></li>
+      <li><a href="sonpo-news-20261107.html">2026年11月7日号</a></li>
+      <li><a href="sonpo-news-20261106.html">2026年11月6日号</a></li>
+      <li><a href="sonpo-news-20261105.html">2026年11月5日号</a></li>
+      <li><a href="sonpo-news-20261104.html">2026年11月4日号</a></li>
+      <li><a href="sonpo-news-20261103.html">2026年11月3日号</a></li>
+      <li><a href="sonpo-news-20261102.html">2026年11月2日号</a></li>
+      <li><a href="sonpo-news-20261101.html">2026年11月1日号</a></li>
+      <li><a href="sonpo-news-20261031.html">2026年10月31日号</a></li>
+      <li><a href="sonpo-news-20261030.html">2026年10月30日号</a></li>
+      <li><a href="sonpo-news-20261029.html">2026年10月29日号</a></li>
+      <li><a href="sonpo-news-20261028.html">2026年10月28日号</a></li>
+      <li><a href="sonpo-news-20261027.html">2026年10月27日号</a></li>
+      <li><a href="sonpo-news-20261026.html">2026年10月26日号</a></li>
+    </ul>
+  </div>
+  <p style="text-align:center;font-size:.85em;margin-top:10px;color:#7f8c8d"><a href="mailto:s-tsuji@universal-life.co.jp" style="color:#7f8c8d;text-decoration:none">大阪ＡＩ支社</a></p>
+</footer>
+
+</div>
+</body>
+</html>
